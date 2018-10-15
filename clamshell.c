@@ -12,7 +12,7 @@
 #include <sys/wait.h>
 #include <unistd.h>
 
-#define LID_OPEN 0
+#define LID_OPENED 0
 #define LID_CLOSED 1
 
 void usage(void);
@@ -41,10 +41,10 @@ int main(int argc, char *argv[]) {
         lid_state1 = lid_state0;
         lid_state0 = clamshell_state();
         debug("lid_state0 %s lid_state1 %s\n",
-                lid_state0 == LID_OPEN ? "LID_OPEN" : "LID_CLOSED",
-                lid_state1 == LID_OPEN ? "LID_OPEN" : "LID_CLOSED");
+                lid_state0 == LID_OPENED ? "LID_OPENED" : "LID_CLOSED",
+                lid_state1 == LID_OPENED ? "LID_OPENED" : "LID_CLOSED");
 
-        if (lid_state0 == LID_OPEN && lid_state1 == LID_CLOSED) {
+        if (lid_state0 == LID_OPENED && lid_state1 == LID_CLOSED) {
             debug("Lid transitioned to open\n");
             child_pid = fork();
             if (child_pid == -1) {
@@ -56,7 +56,7 @@ int main(int argc, char *argv[]) {
                 execvp(argv[1], &argv[1]);
             }
         }
-        else if (lid_state0 == LID_CLOSED && lid_state1 == LID_OPEN) {
+        else if (lid_state0 == LID_CLOSED && lid_state1 == LID_OPENED) {
             debug("Lid transitioned to closed\n");
             if (child_pid != 0) {
                 debug("Killing command %i\n", child_pid);
