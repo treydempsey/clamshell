@@ -100,7 +100,7 @@ void usage(void) {
     printf("\n");
     printf("Executes the command when the clamshell lid is opened. When the lid is closed\n");
     printf("the process is killed. Checking for changes between opened and closed is done\n");
-    printf("every 10 seconds. Set the DEBUG variable to any value to enable debug messages\n");
+    printf("every 10 seconds. Set the DEBUG variable to any value to enable debug messages.\n");
     printf("\n");
 }
 
