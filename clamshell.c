@@ -98,9 +98,9 @@ void usage(void) {
     printf("Usage:\n");
     printf("  clamshell <command>\n");
     printf("\n");
-    printf("Executes the command the clamshell lid is opened. When the lid is closed the process is killed.\n");
-    printf("Checking for changes between opened and closed is done every 10 seconds.\n");
-    printf("Set the DEBUG variable to any value to enable debug messages\n");
+    printf("Executes the command when the clamshell lid is opened. When the lid is closed\n");
+    printf("the process is killed. Checking for changes between opened and closed is done\n");
+    printf("every 10 seconds. Set the DEBUG variable to any value to enable debug messages\n");
     printf("\n");
 }
 
